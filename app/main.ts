@@ -1,5 +1,13 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppModule } from './components/app.module';
+import { AppModule } from './app.module';
+import {PluginOptions, PluginConfig} from "./services/plugin.config";
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+
+export function RunApplication(options: PluginOptions) {
+    let menuConfig = new PluginConfig(options);
+
+    platformBrowserDynamic([{provide: PluginConfig, useValue: menuConfig }])
+        .bootstrapModule(AppModule);
+}
+window['RunApplication'] = RunApplication;

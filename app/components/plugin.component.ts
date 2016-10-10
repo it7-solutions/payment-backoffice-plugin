@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {PluginConfig} from "../services/plugin.config";
 
 @Component({
     selector: 'my-app',
     templateUrl: 'app/templates/plugin.component.html'
 })
-export class AppComponent {
-    constructor() {}
+export class PluginComponent {
+    constructor(
+        private _config: PluginConfig
+    ) {
+        console.log('config', this._config);
+    }
 }
