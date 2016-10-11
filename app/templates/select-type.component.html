@@ -1,1 +1,40 @@
-<h2>Select type Component</h2>
+<table width="100%">
+    <tr>
+        <td>
+            <p>Event</p>
+        </td>
+        <td>
+            <select>
+                <option value="" disabled>Please make selection</option>
+                <option *ngFor="let item of reg_services_out" value="{{item.id}}">{{item.name}}</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Price type:</p>
+        </td>
+        <td>
+            <select>
+                <option value="" disabled>Please make selection</option>
+                <option *ngFor="let item of price_types" value="{{item.key}}">{{item.label}}</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Payment type:</p>
+        </td>
+        <td>
+            <select>
+                <option value="" disabled>Please make selection</option>
+                <option *ngFor="let item of payment_types" value="{{item.key}}">{{item.label}}</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="onClickOkay()">Ok</button>
+        </td>
+    </tr>
+</table>

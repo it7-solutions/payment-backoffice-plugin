@@ -23,7 +23,12 @@
                     'chosen_payment_type': "",
                     'chosen_reg_service_id': "",
                     'chosen_price_type': "",
-                    'payment_types': [],
+                    'payment_types': [
+                        {key: 'bank', label: 'Bank transfer'},
+                        {key: 'cash', label: 'Cash payment (on-site)'},
+                        {key: 'online_dt', label: 'Credit card (DataTrans)'},
+                        {key: 'online_pp', label: 'Credit card (PayPal)'}
+                    ],
                     'payment_date': "",
                     'reg_services_out': [
                         {id: 816, name: 'session 1'},
