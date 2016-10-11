@@ -3,7 +3,7 @@ import {PluginConfig} from "../services/plugin.config";
 
 @Component({
     selector: 'my-app',
-    templateUrl: PluginConfig.getUrl() + '/templates/plugin.component.html'
+    templateUrl: PluginConfig.buildTemplateUrl('/templates/plugin.component.html')
 })
 export class PluginComponent {
     constructor(

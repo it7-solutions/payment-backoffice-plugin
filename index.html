@@ -18,7 +18,48 @@
         System.import('app')
             .then(function (m) {
                 var options = {
-                    name: 'bebebe'
+                    'payer': "",
+                    'chosen_online_system': "",
+                    'chosen_payment_type': "",
+                    'chosen_reg_service_id': "",
+                    'chosen_price_type': "",
+                    'payment_types': [],
+                    'payment_date': "",
+                    'reg_services_out': [
+                        {id: 816, name: 'session 1'},
+                        {id: 819, name: 'session 2'}
+                    ],
+                    'is_invoice': "",
+                    'show_form': "",
+                    'show_download_invoice_btn': "",
+                    'show_download_receipt_btn': "",
+                    'show_edit_invoice_btn': "",
+                    'show_reg_services': "",
+                    'show_payment_types': "",
+                    'show_price_types': "",
+                    'show_transactions_form': "",
+                    'get_invoice_url': "",
+                    'create_invoice_url': "",
+                    'cancel_invoice_url': "",
+                    'download_invoice_url': "",
+                    'download_receipt_url': "",
+                    'save_form_url': "",
+                    'save_transaction_url': "",
+                    'view_step': "",
+                    'transactions_out': [],
+                    'invoices_out': [],
+                    'price_types': [
+                        {key: 'super_early_bird', label: 'Super early bird'},
+                        {key: 'early_bird', label: 'Early bird'},
+                        {key: 'regular', label: 'Regular'},
+                        {key: 'onsite', label: 'On site'}
+                    ],
+                    'payer_notes': "",
+                    'payment_completed': "",
+                    'show_payment_completed': "",
+                    'balance_due': "",
+                    'total_paid': "",
+                    'total_fee': ""
                 };
                 m.RunApplication(options);
             })
