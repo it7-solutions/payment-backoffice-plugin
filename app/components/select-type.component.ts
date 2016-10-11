@@ -14,6 +14,8 @@ export class SelectTypeComponent {
     reg_services_out: Select[];
     price_types: Select[];
 
+    popUpInformation: string;
+
     constructor(private _config: PluginConfig,
                 private _dataManager: DataManagerService,
                 private _requestPopupService: PopupService) {
@@ -32,7 +34,16 @@ export class SelectTypeComponent {
     onSubmit() {
         console.log(this.selected);
         this.submitted = true;
-        this._dataManager.getInvoiceRequest(this.selected);
+        this._dataManager.getInvoiceRequest(this.selected)
+            .then(
+            // data => {
+            //     this.popUpInformation = data;
+            // }
+                () => {
+                    this.popUpInformation = 'HELLO WORLD'; // this is for test
+                    console.log(this.popUpInformation);
+                }
+        );
         var popup = new ConfirmPopup('');
         this._requestPopupService.showPopup(popup);
     }

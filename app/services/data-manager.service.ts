@@ -20,7 +20,7 @@ export class DataManagerService {
 
 
     getInvoiceRequest(selection: Object){
-        console.log('save request');
+        console.log('get invoice request');
         this.showLoading();
         selection = JSON.stringify(selection);
         console.log('new data', selection);
@@ -29,6 +29,18 @@ export class DataManagerService {
             .then(
                 res => {
                     this.hideLoading();
+                    return res;
+                }
+            )
+    }
+
+    getIssueInvoiceRequest(selection: Object) {
+        console.log('issue invoice');
+        selection = JSON.stringify(selection);
+        return this.it7Ajax
+            .post(this.config.create_invoice_url, {selection})
+            .then(
+                res => {
                     return res;
                 }
             )

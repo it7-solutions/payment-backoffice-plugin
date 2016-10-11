@@ -23,8 +23,7 @@ export class InformationPopupComponent {
 
     constructor(private err: It7ErrorService,
                 private requestPopupService: PopupService,
-                private dataManager: DataManagerService,
-                private _config: PluginConfig) {
+                private dataManager: DataManagerService) {
         this.window = window;
         this.requestPopupService.popup.subscribe(popup => this.checkPopup(popup));
     }
@@ -60,6 +59,6 @@ export class InformationPopupComponent {
     }
 
     public onIssueInvoiceClick() {
-        console.log('issue invoice');
+        this.dataManager.getIssueInvoiceRequest({});
     }
 }
