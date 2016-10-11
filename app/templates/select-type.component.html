@@ -1,11 +1,20 @@
+<form (ngSubmit)="onSubmit()" #theForm="ngForm">
 <table width="100%">
     <tr>
         <td width="50%">
             <div>Event:</div>
         </td>
         <td width="50%" align="right">
-            <select>
-                <option value="" disabled>Please make selection</option>
+            <div [hidden]="reg_services.valid || reg_services.pristine" class="alert-danger">
+                This field is required
+            </div>
+            <select
+                [(ngModel)]="selected.reg_services_out"
+                required
+                name="reg_services"
+                id="reg_services"
+                #reg_services="ngModel">
+                <option value="" >Please make selection</option>
                 <option *ngFor="let item of reg_services_out" value="{{item.id}}">{{item.name}}</option>
             </select>
         </td>
@@ -15,8 +24,16 @@
             <div>Price type:</div>
         </td>
         <td align="right">
-            <select>
-                <option value="" disabled>Please make selection</option>
+            <div [hidden]="price_type.valid || price_type.pristine" class="alert-danger">
+                This field is required
+            </div>
+            <select
+                [(ngModel)]="selected.price_types"
+                required
+                name="price_types"
+                id="price_types"
+                #price_type="ngModel">
+                <option value="" >Please make selection</option>
                 <option *ngFor="let item of price_types" value="{{item.key}}">{{item.label}}</option>
             </select>
         </td>
@@ -26,15 +43,33 @@
             <div>Payment type:</div>
         </td>
         <td align="right">
-            <select>
-                <option value="" disabled>Please make selection</option>
+            <div [hidden]="payment_type.valid || payment_type.pristine" class="alert-danger">
+                This field is required
+            </div>
+            <select
+                [(ngModel)]="selected.payment_types"
+                required
+                name="payment_type"
+                id="payment_type"
+                #payment_type="ngModel">
+                <option value="" >Please make selection</option>
                 <option *ngFor="let item of payment_types" value="{{item.key}}">{{item.label}}</option>
             </select>
         </td>
     </tr>
     <tr>
         <td colspan="2" align="right">
-            <button (click)="onClickOkay()">Ok</button>
+            <button type="submit" [disabled]="!theForm.form.valid">Ok</button>
         </td>
     </tr>
 </table>
+</form>
+<style>
+    .ng-valid[required], .ng-valid.required  {
+        border-left: 5px solid #42A948;
+    }
+
+    /*.ng-invalid:not(form)  {*/
+        /*border-left: 5px solid #a94442;*/
+    /*}*/
+</style>
