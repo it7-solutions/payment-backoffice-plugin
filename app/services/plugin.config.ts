@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {BehaviorSubject, Observable} from "rxjs/Rx";
 
 export interface PluginOptions {
+    mockAJAX: boolean;
     payer: string;
     chosen_online_system: string;
     chosen_payment_type: string;
@@ -44,6 +45,7 @@ export class PluginConfig {
         var base = (window && window['__it7_payment_bo_plugin__']) ? window['__it7_payment_bo_plugin__'] : 'app';
         return base.replace(/\/+$/,'') + '/' + path.replace(/^\/+/,'');
     }
+    mockAJAX: boolean;
     payer: string;
     chosen_online_system: string;
     chosen_payment_type: string;
@@ -79,6 +81,7 @@ export class PluginConfig {
     total_paid: string;
     total_fee: string;
     constructor(options: PluginOptions) {
+        this.mockAJAX = options.mockAJAX;
         this.payer = options.payer;
         this.chosen_online_system = options.chosen_online_system;
         this.chosen_payment_type = options.chosen_payment_type;

@@ -5,15 +5,15 @@
             <div>Event:</div>
         </td>
         <td width="50%" align="right">
-            <div [hidden]="reg_services.valid || reg_services.pristine" class="alert-danger">
+            <div [hidden]="reg_service.valid || reg_service.pristine" class="alert-danger">
                 This field is required
             </div>
             <select
-                [(ngModel)]="selected.reg_services_out"
+                [(ngModel)]="selected.reg_service_id"
                 required
                 name="reg_services"
                 id="reg_services"
-                #reg_services="ngModel">
+                #reg_service="ngModel">
                 <option value="" >Please make selection</option>
                 <option *ngFor="let item of reg_services_out" value="{{item.id}}">{{item.name}}</option>
             </select>
@@ -28,7 +28,7 @@
                 This field is required
             </div>
             <select
-                [(ngModel)]="selected.price_types"
+                [(ngModel)]="selected.price_type"
                 required
                 name="price_types"
                 id="price_types"
@@ -47,7 +47,7 @@
                 This field is required
             </div>
             <select
-                [(ngModel)]="selected.payment_types"
+                [(ngModel)]="selected.payment_type"
                 required
                 name="payment_type"
                 id="payment_type"

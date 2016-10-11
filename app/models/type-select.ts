@@ -1,5 +1,5 @@
 export interface TypeSelect {
-    payment_types: string;
-    reg_services_out: string,
-    price_types: string
+    payment_type: string;
+    reg_service_id: string,
+    price_type: string
 }
