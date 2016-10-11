@@ -9,10 +9,16 @@ import {DataManagerService} from "./services/data-manager.service";
 import {It7ErrorService} from "./services/it7-error.service";
 import {It7AjaxService} from "./services/it7-ajax.service";
 import {BusyPopupComponent} from "./components/busy-popup.component";
+import {InformationPopupComponent} from "./components/information-popup.component";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule],
-    declarations: [PluginComponent, SelectTypeComponent, BusyPopupComponent],
+    declarations: [
+        PluginComponent,
+        SelectTypeComponent,
+        BusyPopupComponent,
+        InformationPopupComponent
+    ],
     bootstrap: [PluginComponent],
     providers: [
         PopupService,
