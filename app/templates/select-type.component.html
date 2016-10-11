@@ -1,9 +1,9 @@
 <table width="100%">
     <tr>
-        <td>
-            <p>Event</p>
+        <td width="50%">
+            <div>Event:</div>
         </td>
-        <td>
+        <td width="50%" align="right">
             <select>
                 <option value="" disabled>Please make selection</option>
                 <option *ngFor="let item of reg_services_out" value="{{item.id}}">{{item.name}}</option>
@@ -12,9 +12,9 @@
     </tr>
     <tr>
         <td>
-            <p>Price type:</p>
+            <div>Price type:</div>
         </td>
-        <td>
+        <td align="right">
             <select>
                 <option value="" disabled>Please make selection</option>
                 <option *ngFor="let item of price_types" value="{{item.key}}">{{item.label}}</option>
@@ -23,9 +23,9 @@
     </tr>
     <tr>
         <td>
-            <p>Payment type:</p>
+            <div>Payment type:</div>
         </td>
-        <td>
+        <td align="right">
             <select>
                 <option value="" disabled>Please make selection</option>
                 <option *ngFor="let item of payment_types" value="{{item.key}}">{{item.label}}</option>
@@ -33,7 +33,7 @@
         </td>
     </tr>
     <tr>
-        <td colspan="2">
+        <td colspan="2" align="right">
             <button (click)="onClickOkay()">Ok</button>
         </td>
     </tr>

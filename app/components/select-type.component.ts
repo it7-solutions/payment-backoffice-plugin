@@ -3,7 +3,7 @@ import {PluginConfig} from "../services/plugin.config";
 import {Select} from "../models/select";
 @Component({
     selector: 'select-type',
-    templateUrl: 'app/templates/select-type.component.html'
+    templateUrl: PluginConfig.buildTemplateUrl('/templates/select-type.component.html')
 })
 export class SelectTypeComponent {
     payment_types: Select[];

@@ -1,2 +1,45 @@
 <h1>Payment BackOffice Plugin</h1>
-<select-type></select-type>
+
+<table width="100%">
+    <tr>
+        <td width="50%">
+            <select-type></select-type>
+        </td>
+        <td width="50%" valign="top">
+            <div>Payment notes:</div>
+            <textarea style="width: 100%; height: 100px; resize: none"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="100%">
+                <tr>
+                    <td>Registration fee:</td>
+                    <td align="right"></td>
+                </tr>
+                <tr>
+                    <td>Total paid:</td>
+                    <td align="right"></td>
+                </tr>
+                <tr>
+                    <td>Balance due:</td>
+                    <td align="right"></td>
+                </tr>
+                <tr>
+                    <td>Payment date:</td>
+                    <td align="right"></td>
+                </tr>
+                <tr>
+                    <td>Payment complete:</td>
+                    <td align="right">
+                        <label for="payment_complete">Yes</label>
+                        <input id="payment_complete" type="checkbox" />
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td valign="bottom" align="right">
+            <button>Save</button>
+        </td>
+    </tr>
+</table>
