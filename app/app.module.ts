@@ -12,6 +12,7 @@ import {BusyPopupComponent} from "./components/busy-popup.component";
 import {InformationPopupComponent} from "./components/information-popup.component";
 import {DynamicFlags} from "./services/dynamic-flags.service";
 import {PluginConfig} from "./services/plugin.config";
+import {ViewTypeComponent} from "./components/view-type.component";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule],
@@ -19,7 +20,8 @@ import {PluginConfig} from "./services/plugin.config";
         PluginComponent,
         SelectTypeComponent,
         BusyPopupComponent,
-        InformationPopupComponent
+        InformationPopupComponent,
+        ViewTypeComponent
     ],
     bootstrap: [PluginComponent],
     providers: [
