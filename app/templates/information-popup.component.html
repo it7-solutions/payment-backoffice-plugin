@@ -21,7 +21,7 @@
 </style>
 <div class="overlay" *ngIf="popup" [style.width]="overlayWidth" [style.height]="overlayHeight"></div>
 <div class="popup" *ngIf="popup" [style.left]="styleLeft" [style.top]="styleTop">
-    <div [innerHTML]="termsAndConditions"></div>
+    <div [innerHTML]="popup.data"></div>
     <div>
         <button (click)="onCancelClick()">Edit</button>
         <button (click)="onIssueInvoiceClick()">issue Invoice</button>

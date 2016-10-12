@@ -5,7 +5,11 @@ import {DataManagerService} from "../services/data-manager.service";
 import {PluginConfig} from "../services/plugin.config";
 
 export class ConfirmPopup extends BasePopup {
-
+    data: any;
+    constructor(data: any) {
+        super('ConfirmPopup');
+        this.data = data;
+    }
 }
 
 @Component({
@@ -19,7 +23,6 @@ export class InformationPopupComponent {
     overlayWidth: string;
     overlayHeight: string;
     window: any;
-    termsAndConditions: string;
 
     constructor(private err: It7ErrorService,
                 private requestPopupService: PopupService,
@@ -35,7 +38,7 @@ export class InformationPopupComponent {
     }
 
     private showPopup(popup: ConfirmPopup) {
-        if (popup) {
+        if (popup.data) {
             this.popup = popup;
             this.setOverlay();
             this.centerPopup();

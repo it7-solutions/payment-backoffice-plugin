@@ -36,16 +36,13 @@ export class SelectTypeComponent {
         this.submitted = true;
         this._dataManager.getInvoiceRequest(this.selected)
             .then(
-            // data => {
-            //     this.popUpInformation = data;
-            // }
-                () => {
-                    this.popUpInformation = 'HELLO WORLD'; // this is for test
-                    console.log(this.popUpInformation);
-                }
+            data => {
+                data ? this.popUpInformation = data : this.popUpInformation = 'No Data';
+                console.log(this.popUpInformation);
+                var popup = new ConfirmPopup(this.popUpInformation);
+                this._requestPopupService.showPopup(popup);
+            }
         );
-        var popup = new ConfirmPopup('');
-        this._requestPopupService.showPopup(popup);
     }
 
     /**
