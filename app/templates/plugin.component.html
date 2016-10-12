@@ -3,7 +3,7 @@
 <table width="100%">
     <tr>
         <td width="50%">
-            <select-type></select-type>
+            <select-type [selected]="selected"></select-type>
         </td>
         <td width="50%" valign="top">
             <div>Payment notes:</div>
@@ -44,4 +44,4 @@
     </tr>
 </table>
 <busy-popup></busy-popup>
-<information-popup></information-popup>
+<information-popup [selected]="selected"></information-popup>

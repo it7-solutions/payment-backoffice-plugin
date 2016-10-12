@@ -36,11 +36,13 @@ export class DataManagerService {
 
     getIssueInvoiceRequest(selection: Object) {
         console.log('issue invoice');
+        this.showLoading();
         selection = JSON.stringify(selection);
         return this.it7Ajax
             .post(this.config.create_invoice_url, {selection})
             .then(
                 res => {
+                    this.hideLoading();
                     return res;
                 }
             )

@@ -1,10 +1,11 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {PluginConfig} from "../services/plugin.config";
 import {Select} from "../models/select";
 import {TypeSelect} from "../models/type-select";
 import {DataManagerService} from "../services/data-manager.service";
 import {ConfirmPopup} from "./information-popup.component";
 import {PopupService} from "../services/popup.service";
+import {DynamicFlags} from "../services/dynamic-flags.service";
 @Component({
     selector: 'select-type',
     templateUrl: PluginConfig.buildTemplateUrl('/templates/select-type.component.html')
@@ -18,17 +19,15 @@ export class SelectTypeComponent {
 
     constructor(private _config: PluginConfig,
                 private _dataManager: DataManagerService,
-                private _requestPopupService: PopupService) {
+                private _requestPopupService: PopupService,
+                private dynamicFlags: DynamicFlags) {
         this.payment_types = this._config.payment_types;
         this.reg_services_out = this._config.reg_services_out;
         this.price_types = this._config.price_types;
     }
 
-    selected: TypeSelect = {
-        payment_type: '',
-        reg_service_id: '',
-        price_type: ''
-    };
+    @Input() selected: TypeSelect;
+
     submitted = false;
 
     onSubmit() {
@@ -37,10 +36,12 @@ export class SelectTypeComponent {
         this._dataManager.getInvoiceRequest(this.selected)
             .then(
             data => {
-                data ? this.popUpInformation = data : this.popUpInformation = 'No Data';
+                this.popUpInformation = data;
                 console.log(this.popUpInformation);
                 var popup = new ConfirmPopup(this.popUpInformation);
                 this._requestPopupService.showPopup(popup);
+                console.log('this.dynamicFlags', this.dynamicFlags);
+                this.dynamicFlags.update(this._config);
             }
         );
     }

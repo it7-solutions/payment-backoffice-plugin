@@ -10,6 +10,8 @@ import {It7ErrorService} from "./services/it7-error.service";
 import {It7AjaxService} from "./services/it7-ajax.service";
 import {BusyPopupComponent} from "./components/busy-popup.component";
 import {InformationPopupComponent} from "./components/information-popup.component";
+import {DynamicFlags} from "./services/dynamic-flags.service";
+import {PluginConfig} from "./services/plugin.config";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule],
@@ -24,8 +26,16 @@ import {InformationPopupComponent} from "./components/information-popup.componen
         PopupService,
         DataManagerService,
         It7ErrorService,
-        It7AjaxService
+        It7AjaxService,
+        DynamicFlags
     ]
 })
 export class AppModule {
+    constructor(
+        private config: PluginConfig,
+        private dynamicFlags: DynamicFlags
+    ) {
+        this.dynamicFlags.update(this.config);
+        console.log('this.dynamicFlags', this.dynamicFlags);
+    }
 }

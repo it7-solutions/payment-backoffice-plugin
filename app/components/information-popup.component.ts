@@ -1,8 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {BasePopup, PopupService} from "../services/popup.service";
 import {It7ErrorService} from "../services/it7-error.service";
 import {DataManagerService} from "../services/data-manager.service";
 import {PluginConfig} from "../services/plugin.config";
+import {TypeSelect} from "../models/type-select";
+import {DynamicFlags} from "../services/dynamic-flags.service";
 
 export class ConfirmPopup extends BasePopup {
     data: any;
@@ -24,9 +26,12 @@ export class InformationPopupComponent {
     overlayHeight: string;
     window: any;
 
+    @Input() selected: TypeSelect;
+
     constructor(private err: It7ErrorService,
                 private requestPopupService: PopupService,
-                private dataManager: DataManagerService) {
+                private dataManager: DataManagerService,
+                private dynamicFlags: DynamicFlags) {
         this.window = window;
         this.requestPopupService.popup.subscribe(popup => this.checkPopup(popup));
     }
@@ -62,6 +67,12 @@ export class InformationPopupComponent {
     }
 
     public onIssueInvoiceClick() {
-        this.dataManager.getIssueInvoiceRequest({});
+        this.dataManager.getIssueInvoiceRequest(this.selected)
+            .then(
+                data => {
+                    this.dynamicFlags.update(data);
+                    this.popup = undefined;
+                }
+            )
     }
 }
