@@ -30,4 +30,12 @@ export class PluginComponent {
                 }
             );
     }
+
+    onInvoiceClick() {
+        window.open(this._config.download_invoice_url, '_blank');
+    }
+
+    onReceiptClick() {
+        window.open(this._config.download_receipt_url, '_blank');
+    }
 }

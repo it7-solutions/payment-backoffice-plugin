@@ -15,15 +15,15 @@
             <table width="100%">
                 <tr>
                     <td>Total paid:</td>
-                    <td align="right">{{_config.total_paid}}</td>
+                    <td align="right">{{dynamicFlags.total_paid}}</td>
                 </tr>
                 <tr>
                     <td>Total fee:</td>
-                    <td align="right">{{_config.total_fee}}</td>
+                    <td align="right">{{dynamicFlags.total_fee}}</td>
                 </tr>
                 <tr>
                     <td>Balance due:</td>
-                    <td align="right">{{_config.balance_due}}</td>
+                    <td align="right">{{dynamicFlags.balance_due}}</td>
                 </tr>
                 <tr>
                     <td>Payment date:</td>
@@ -39,6 +39,8 @@
             </table>
         </td>
         <td valign="bottom" align="right">
+            <button *ngIf="dynamicFlags.show_download_invoice_btn" (click)="onInvoiceClick()">Invoice</button>
+            <button *ngIf="dynamicFlags.show_download_receipt_btn" (click)="onReceiptClick()">Receipt</button>
             <button *ngIf="dynamicFlags.show_edit_invoice_btn" (click)="onCancelInvoiceClick()">Cancel Invoice</button>
             <button>Save</button>
         </td>
