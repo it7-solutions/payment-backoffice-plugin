@@ -1,6 +1,6 @@
 <form (ngSubmit)="onSubmit()" #theForm="ngForm" *ngIf="dynamicFlags.show_form">
     <table width="100%">
-        <tr>
+        <tr *ngIf="_config.show_reg_services">
             <td width="50%">
                 <div>Event:</div>
             </td>
@@ -19,7 +19,7 @@
                 </select>
             </td>
         </tr>
-        <tr>
+        <tr *ngIf="_config.show_price_types">
             <td>
                 <div>Price type:</div>
             </td>
@@ -38,7 +38,7 @@
                 </select>
             </td>
         </tr>
-        <tr>
+        <tr *ngIf="_config.show_payment_types">
             <td>
                 <div>Payment type:</div>
             </td>
