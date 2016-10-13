@@ -48,6 +48,18 @@ export class DataManagerService {
             )
     }
 
+    cancelInvoiceRequest() {
+        this.showLoading();
+        return this.it7Ajax
+            .post(this.config.cancel_invoice_url, {})
+            .then(
+                res => {
+                    this.hideLoading();
+                    return res;
+                }
+            )
+    }
+
     private showLoading(){
         console.log('show loading');
         this.popup = new BusyPopup();

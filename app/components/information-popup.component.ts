@@ -67,11 +67,11 @@ export class InformationPopupComponent {
     }
 
     public onIssueInvoiceClick() {
+        this.popup = undefined;
         this.dataManager.getIssueInvoiceRequest(this.selected)
             .then(
                 data => {
                     this.dynamicFlags.update(data);
-                    this.popup = undefined;
                 }
             )
     }

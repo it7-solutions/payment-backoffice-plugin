@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {PluginConfig} from "../services/plugin.config";
 import {TypeSelect} from "../models/type-select";
+import {DataManagerService} from "../services/data-manager.service";
+import {DynamicFlags} from "../services/dynamic-flags.service";
 
 @Component({
     selector: 'my-app',
@@ -13,8 +15,19 @@ export class PluginComponent {
         price_type: ''
     };
     constructor(
-        private _config: PluginConfig
+        private _config: PluginConfig,
+        private dataManager: DataManagerService,
+        private dynamicFlags: DynamicFlags
     ) {
         console.log('config', this._config);
+    }
+
+    onCancelInvoiceClick() {
+        this.dataManager.cancelInvoiceRequest()
+            .then(
+                data => {
+                    this.dynamicFlags.update(data);
+                }
+            );
     }
 }
