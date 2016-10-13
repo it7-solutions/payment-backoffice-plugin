@@ -13,6 +13,8 @@ export class DynamicFlags {
     balance_due: string;
     show_download_invoice_btn: boolean;
     show_download_receipt_btn: boolean;
+    payer_notes: string;
+    payment_completed: boolean;
 
     private _onUpdate: BehaviorSubject<DynamicFlags>;
     public onUpdate: Observable<DynamicFlags>;
@@ -34,6 +36,8 @@ export class DynamicFlags {
         undefined === options.balance_due || (this.balance_due = options.balance_due);
         undefined === options.show_download_invoice_btn || (this.show_download_invoice_btn = options.show_download_invoice_btn);
         undefined === options.show_download_receipt_btn || (this.show_download_receipt_btn = options.show_download_receipt_btn);
+        undefined === options.payer_notes || (this.payer_notes = options.payer_notes);
+        undefined === options.payment_completed || (this.payment_completed = options.payment_completed);
 
         this._onUpdate.next(this);
     }

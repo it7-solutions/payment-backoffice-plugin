@@ -3,6 +3,7 @@ import {PluginConfig} from "../services/plugin.config";
 import {TypeSelect} from "../models/type-select";
 import {DataManagerService} from "../services/data-manager.service";
 import {DynamicFlags} from "../services/dynamic-flags.service";
+import {FormSave} from "../models/form";
 
 @Component({
     selector: 'my-app',
@@ -13,6 +14,11 @@ export class PluginComponent {
         payment_type: '',
         reg_service_id: '',
         price_type: ''
+    };
+
+    formSave: FormSave = {
+        notes: '',
+        payment_completed: false
     };
     constructor(
         private _config: PluginConfig,
@@ -37,5 +43,10 @@ export class PluginComponent {
 
     onReceiptClick() {
         window.open(this._config.download_receipt_url, '_blank');
+    }
+
+    onSaveClick() {
+        console.log('formSave', this.formSave);
+        this.dataManager.saveRequest(this.formSave);
     }
 }

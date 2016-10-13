@@ -7,7 +7,7 @@
         </td>
         <td width="50%" valign="top">
             <div>Payment notes:</div>
-            <textarea style="width: 100%; height: 100px; resize: none"></textarea>
+            <textarea style="width: 100%; height: 100px; resize: none" [(ngModel)]="formSave.notes">{{dynamicFlags.payer_notes}}</textarea>
         </td>
     </tr>
     <tr>
@@ -29,11 +29,11 @@
                     <td>Payment date:</td>
                     <td align="right">{{_config.payment_date}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf="_config.show_payment_completed">
                     <td>Payment complete:</td>
                     <td align="right">
                         <label for="payment_complete">Yes</label>
-                        <input id="payment_complete" type="checkbox" />
+                        <input [checked]="dynamicFlags.payment_completed" [(ngModel)]="formSave.payment_completed" id="payment_complete" type="checkbox" />
                     </td>
                 </tr>
             </table>
@@ -42,7 +42,7 @@
             <button *ngIf="dynamicFlags.show_download_invoice_btn" (click)="onInvoiceClick()">Invoice</button>
             <button *ngIf="dynamicFlags.show_download_receipt_btn" (click)="onReceiptClick()">Receipt</button>
             <button *ngIf="dynamicFlags.show_edit_invoice_btn" (click)="onCancelInvoiceClick()">Cancel Invoice</button>
-            <button>Save</button>
+            <button (click)="onSaveClick()">Save</button>
         </td>
     </tr>
 </table>
