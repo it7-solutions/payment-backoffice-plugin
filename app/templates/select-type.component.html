@@ -64,7 +64,7 @@
         </tr>
     </table>
 </form>
-<view-type *ngIf="!dynamicFlags.show_form"></view-type>
+<view-type *ngIf="!dynamicFlags.show_form" [selected]="selected"></view-type>
 
 <style>
     .ng-valid[required], .ng-valid.required  {
