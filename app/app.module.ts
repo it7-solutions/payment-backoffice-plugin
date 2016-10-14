@@ -13,6 +13,7 @@ import {InformationPopupComponent} from "./components/information-popup.componen
 import {DynamicFlags} from "./services/dynamic-flags.service";
 import {PluginConfig} from "./services/plugin.config";
 import {ViewTypeComponent} from "./components/view-type.component";
+import {AddFormComponent} from "./components/add-form.component";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule],
@@ -21,7 +22,8 @@ import {ViewTypeComponent} from "./components/view-type.component";
         SelectTypeComponent,
         BusyPopupComponent,
         InformationPopupComponent,
-        ViewTypeComponent
+        ViewTypeComponent,
+        AddFormComponent
     ],
     bootstrap: [PluginComponent],
     providers: [

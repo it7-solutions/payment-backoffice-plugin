@@ -43,7 +43,7 @@
                     'show_reg_services': true,
                     'show_payment_types': true,
                     'show_price_types': true,
-                    'show_transactions_form': "",
+                    'show_transactions_form': true,
                     'get_invoice_url': "",
                     'create_invoice_url': "",
                     'cancel_invoice_url': "",
@@ -52,8 +52,30 @@
                     'save_form_url': "",
                     'save_transaction_url': "",
                     'view_step': "",
-                    'transactions_out': [],
-                    'invoices_out': [],
+                    'transactions_out': [
+                        {
+                            amount: "10.00",
+                            bank_details: null,
+                            date: '05.10.2016',
+                            details: {
+                                error: null,
+                                success: {
+                                    amount: "10:00",
+                                    bank: null,
+                                    cc_status: "success",
+                                    cc_transaction_id: "161005180517014765",
+                                    date: "05.10.2016",
+                                    payment_type: "Credit card"
+                                }
+                            },
+                            invoice_number: "105120",
+                            payment_type: "Credit card",
+                            state: "completed"
+                        }
+                    ],
+                    'invoices_out': [
+                        {key: "4245", label: 105120}
+                    ],
                     'price_types': [
                         {key: 'super_early_bird', label: 'Super early bird'},
                         {key: 'early_bird', label: 'Early bird'},

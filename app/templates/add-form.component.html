@@ -1,0 +1,36 @@
+<table width="100%">
+    <tr>
+        <td width="15%">
+            <div>Date</div>
+            <input type="text" [(ngModel)]="addForm.transaction_date" />
+        </td>
+        <td width="15%">
+            <div>Invoice</div>
+            <select [(ngModel)]="addForm.invoice_id">
+                <option value="" disabled>Please make selection</option>
+                <option *ngFor="let item of config.invoices_out" value="{{item.key}}">{{item.label}}</option>
+            </select>
+        </td>
+        <td width="15%">
+            <div>Payment method</div>
+            <select [(ngModel)]="addForm.payment_type_short_name">
+                <option value="" disabled>Please make selection</option>
+                <option *ngFor="let item of config.payment_types" value="{{item.key}}">{{item.label}}</option>
+            </select>
+        </td>
+        <td width="20%">
+            <div>Notes</div>
+            <input [(ngModel)]="addForm.bank" type="text" />
+        </td>
+        <td width="15%">
+            <div>Amount paid</div>
+            <input [(ngModel)]="addForm.amount" text="text" />
+        </td>
+        <td width="15%" valign="top">
+            Status
+        </td>
+        <td width="5%" valign="bottom">
+            <button (click)="onAddTransactionClick()">Add</button>
+        </td>
+    </tr>
+</table>

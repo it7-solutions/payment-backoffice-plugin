@@ -15,6 +15,7 @@ export class DynamicFlags {
     show_download_receipt_btn: boolean;
     payer_notes: string;
     payment_completed: boolean;
+    show_transactions_form: boolean;
 
     private _onUpdate: BehaviorSubject<DynamicFlags>;
     public onUpdate: Observable<DynamicFlags>;
@@ -38,6 +39,7 @@ export class DynamicFlags {
         undefined === options.show_download_receipt_btn || (this.show_download_receipt_btn = options.show_download_receipt_btn);
         undefined === options.payer_notes || (this.payer_notes = options.payer_notes);
         undefined === options.payment_completed || (this.payment_completed = options.payment_completed);
+        undefined === options.show_transactions_form || (this.show_transactions_form = options.show_transactions_form);
 
         this._onUpdate.next(this);
     }

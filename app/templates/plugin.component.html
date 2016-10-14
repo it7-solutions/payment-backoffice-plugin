@@ -33,7 +33,11 @@
                     <td>Payment complete:</td>
                     <td align="right">
                         <label for="payment_complete">Yes</label>
-                        <input [checked]="dynamicFlags.payment_completed" [(ngModel)]="formSave.payment_completed" id="payment_complete" type="checkbox" />
+                        <input
+                            [checked]="dynamicFlags.payment_completed"
+                            [(ngModel)]="formSave.payment_completed"
+                            id="payment_complete"
+                            type="checkbox" />
                     </td>
                 </tr>
             </table>
@@ -46,5 +50,6 @@
         </td>
     </tr>
 </table>
+<add-form *ngIf="dynamicFlags.show_transactions_form"></add-form>
 <busy-popup></busy-popup>
 <information-popup [selected]="selected"></information-popup>

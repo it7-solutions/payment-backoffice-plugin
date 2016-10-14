@@ -74,6 +74,20 @@ export class DataManagerService {
             )
     }
 
+    addTransactionRequest(selection: Object) {
+        this.showLoading();
+        selection = JSON.stringify(selection);
+        console.log('add transaction data', selection);
+        return this.it7Ajax
+            .post(this.config.save_transaction_url, {selection})
+            .then(
+                res => {
+                    this.hideLoading();
+                    return res;
+                }
+            )
+    }
+
     private showLoading(){
         console.log('show loading');
         this.popup = new BusyPopup();
