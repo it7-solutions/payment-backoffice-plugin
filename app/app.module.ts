@@ -14,6 +14,7 @@ import {DynamicFlags} from "./services/dynamic-flags.service";
 import {PluginConfig} from "./services/plugin.config";
 import {ViewTypeComponent} from "./components/view-type.component";
 import {AddFormComponent} from "./components/add-form.component";
+import {ListTransactionsComponent} from "./components/list-transactions.component";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule],
@@ -23,7 +24,8 @@ import {AddFormComponent} from "./components/add-form.component";
         BusyPopupComponent,
         InformationPopupComponent,
         ViewTypeComponent,
-        AddFormComponent
+        AddFormComponent,
+        ListTransactionsComponent
     ],
     bootstrap: [PluginComponent],
     providers: [

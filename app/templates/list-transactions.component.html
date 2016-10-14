@@ -1,0 +1,23 @@
+<table width="100%">
+    <tr *ngFor="let item of config.transactions_out">
+        <td width="15%">
+            <div>{{item.date}}</div>
+        </td>
+        <td width="15%">
+            <div>{{item.invoice_number}}</div>
+        </td>
+        <td width="15%">
+            <div>{{item.payment_type}}</div>
+        </td>
+        <td width="20%">
+            <div>{{item.bank_details}}</div>
+        </td>
+        <td width="15%">
+            <div>{{item.amount}}</div>
+        </td>
+        <td width="15%">
+            <div>{{item.state}}</div>
+        </td>
+        <td width="5%"></td>
+    </tr>
+</table>
