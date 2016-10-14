@@ -19,10 +19,13 @@
             .then(function (m) {
                 var options = {
                     'mockAJAX': true,
+                    callDatePicker: function(){
+                        console.log('call datepicker...');
+                    },
                     'payer': "",
                     'chosen_online_system': "",
                     'chosen_payment_type': "bank",
-                    'chosen_reg_service_id': 816,
+                    'chosen_reg_service_id': "",
                     'chosen_price_type': "early_bird",
                     'payment_types': [
                         {key: 'bank', label: 'Bank transfer'},

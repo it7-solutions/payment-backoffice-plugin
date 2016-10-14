@@ -1,17 +1,17 @@
 <table width="100%">
-    <tr>
+    <tr *ngIf="config.chosen_reg_service_id">
         <td width="50%">
             <div>Event:</div>
         </td>
         <td width="50%" align="right">{{getRegServiceNameById()}}</td>
     </tr>
-    <tr>
+    <tr *ngIf="config.chosen_price_type">
         <td>
             <div>Price type:</div>
         </td>
         <td align="right">{{getPriceLabelByKey()}}</td>
     </tr>
-    <tr>
+    <tr *ngIf="config.chosen_payment_type">
         <td>Payment type:</td>
         <td align="right">{{getPaymentLabelByKey()}}</td>
     </tr>

@@ -3,6 +3,7 @@ import {BehaviorSubject, Observable} from "rxjs/Rx";
 
 export interface PluginOptions {
     mockAJAX: boolean;
+    callDatePicker?: (callback: any) => any;
     payer: string;
     chosen_online_system: string;
     chosen_payment_type: string;
@@ -46,6 +47,7 @@ export class PluginConfig {
         return base.replace(/\/+$/,'') + '/' + path.replace(/^\/+/,'');
     }
     mockAJAX: boolean;
+    callDatePicker: (callback: any) => any;
     payer: string;
     chosen_online_system: string;
     chosen_payment_type: string;
@@ -82,6 +84,7 @@ export class PluginConfig {
     total_fee: string;
     constructor(options: PluginOptions) {
         this.mockAJAX = options.mockAJAX;
+        this.callDatePicker = options.callDatePicker;
         this.payer = options.payer;
         this.chosen_online_system = options.chosen_online_system;
         this.chosen_payment_type = options.chosen_payment_type;
