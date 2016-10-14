@@ -46,8 +46,7 @@ export class SelectTypeComponent {
         );
     }
 
-    /**
-     * use in template
-     */
-
+    ngAfterViewInit() {
+        this._config.callAfterInit();
+    }
 }

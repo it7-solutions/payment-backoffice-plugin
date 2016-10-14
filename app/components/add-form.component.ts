@@ -31,4 +31,8 @@ export class AddFormComponent implements OnInit{
             this.addForm.transaction_date = date;
         });
     }
+
+    ngAfterViewInit() {
+        this.config.callAfterInit();
+    }
 }
