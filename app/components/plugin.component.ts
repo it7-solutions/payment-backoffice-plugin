@@ -21,11 +21,11 @@ export class PluginComponent implements OnInit {
         payment_completed: false
     };
     formDataNotesPayment: FormSave = {
-        notes: '',
-        payment_completed: false
+        notes: this.dynamicFlags.payer_notes,
+        payment_completed: this.dynamicFlags.payment_completed
     };
     formDataNotes: FormSave = {
-        notes: ''
+        notes: this.dynamicFlags.payer_notes
     };
 
     constructor(

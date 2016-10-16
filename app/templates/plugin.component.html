@@ -9,7 +9,7 @@
             <div>Payment notes:</div>
             <textarea
                 style="width: 100%; height: 100px; resize: none"
-                [(ngModel)]="formData.notes">{{dynamicFlags.payer_notes}}</textarea>
+                [(ngModel)]="formData.notes">{{formData.notes}}</textarea>
         </td>
     </tr>
     <tr>
@@ -36,7 +36,7 @@
                     <td align="right">
                         <label for="payment_complete">Yes</label>
                         <input
-                            [checked]="dynamicFlags.payment_completed"
+                            [checked]="formData.payment_completed"
                             [(ngModel)]="formData.payment_completed"
                             id="payment_complete"
                             type="checkbox" />
