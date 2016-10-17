@@ -16,7 +16,7 @@ export class DynamicFlags {
     payer_notes: string;
     payment_completed: boolean;
     show_transactions_form: boolean;
-    transactions_out: any[];
+    transactions: any[];
 
     private _onUpdate: BehaviorSubject<DynamicFlags>;
     public onUpdate: Observable<DynamicFlags>;
@@ -41,7 +41,7 @@ export class DynamicFlags {
         undefined === options.payer_notes || (this.payer_notes = options.payer_notes);
         undefined === options.payment_completed || (this.payment_completed = options.payment_completed);
         undefined === options.show_transactions_form || (this.show_transactions_form = options.show_transactions_form);
-        undefined === options.transactions_out || (this.transactions_out = options.transactions_out);
+        undefined === options.transactions || (this.transactions = options.transactions);
 
         this._onUpdate.next(this);
     }

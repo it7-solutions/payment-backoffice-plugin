@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngIf="_show_form">
             <td width="15%">
                 <input id="datepicker" type="text" [(ngModel)]="addForm.transaction_date" />
             </td>
@@ -43,7 +43,7 @@
             </td>
         </tr>
     </tbody>
-    <tbody list-transactions *ngIf="config.transactions_out.length"></tbody>
+    <tbody list-transactions *ngIf="config.transactions.length"></tbody>
 </table>
 <style>
     table th {

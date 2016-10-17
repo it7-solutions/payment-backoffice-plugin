@@ -30,7 +30,7 @@ export interface PluginOptions {
     save_form_url: string;
     save_transaction_url: string;
     view_step: string;
-    transactions_out: any[];
+    transactions: any[];
     invoices_out: any[];
     price_types: any[];
     payer_notes: string;
@@ -75,7 +75,7 @@ export class PluginConfig {
     save_form_url: string;
     save_transaction_url: string;
     view_step: string;
-    transactions_out: any[];
+    transactions: any[];
     invoices_out: any[];
     price_types: any[];
     payer_notes: string;
@@ -113,7 +113,7 @@ export class PluginConfig {
         this.save_form_url = options.save_form_url;
         this.save_transaction_url = options.save_transaction_url;
         this.view_step = options.view_step;
-        this.transactions_out = options.transactions_out;
+        this.transactions = options.transactions;
         this.invoices_out = options.invoices_out;
         this.price_types = options.price_types;
         this.payer_notes = options.payer_notes;
