@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {AddForm} from "../models/addForm";
 import {DataManagerService} from "../services/data-manager.service";
 import {PluginConfig} from "../services/plugin.config";
+import {DynamicFlags} from "../services/dynamic-flags.service";
 @Component({
     selector: 'add-form',
     templateUrl: PluginConfig.buildTemplateUrl('/templates/add-form.component.html')
@@ -9,10 +10,9 @@ import {PluginConfig} from "../services/plugin.config";
 export class AddFormComponent implements OnInit{
     constructor(
         private dataManager: DataManagerService,
-        private config: PluginConfig
-    ) {
-
-    }
+        private config: PluginConfig,
+        private dynamicFlags: DynamicFlags
+    ) {}
     addForm: AddForm = {
         amount: '',
         invoice_id: '',
@@ -22,7 +22,12 @@ export class AddFormComponent implements OnInit{
     };
 
     onAddTransactionClick() {
-        this.dataManager.addTransactionRequest(this.addForm);
+        this.dataManager.addTransactionRequest(this.addForm)
+            .then(
+                data => {
+                    this.dynamicFlags.update(data);
+                }
+            );
     }
 
     ngOnInit() {

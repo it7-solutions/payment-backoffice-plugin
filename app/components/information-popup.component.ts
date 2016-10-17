@@ -48,7 +48,7 @@ export class InformationPopupComponent {
             this.setOverlay();
             this.centerPopup();
         } else {
-            this.err.fire('Error: Cannon show Confirm popup because not enough data');
+            this.err.fire('Error: Cannon make request because not enough data');
         }
     }
 
