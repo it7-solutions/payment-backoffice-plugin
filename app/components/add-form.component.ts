@@ -10,6 +10,8 @@ import {ValidateField} from "../models/validate";
 })
 export class AddFormComponent{
     _show_form: boolean;
+    formValid: boolean = true;
+
     constructor(
         private dataManager: DataManagerService,
         private config: PluginConfig,
@@ -33,6 +35,7 @@ export class AddFormComponent{
                 .then(
                     data => {
                         this.dynamicFlags.update(data);
+                        console.log('this.dynamicFlags', this.dynamicFlags);
                         this.addForm = {
                             amount: '',
                             invoice_id: '',
@@ -56,7 +59,6 @@ export class AddFormComponent{
         });
     }
 
-    formValid: boolean = true;
     validateFields: {[key:string] : ValidateField} = {
         amount: {
             isValid: true,

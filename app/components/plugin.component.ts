@@ -41,6 +41,7 @@ export class PluginComponent implements OnInit {
             .then(
                 data => {
                     this.dynamicFlags.update(data);
+                    console.log('this.dynamicFlags', this.dynamicFlags);
                 }
             );
     }
@@ -64,5 +65,9 @@ export class PluginComponent implements OnInit {
         } else {
             this.formData = this.formDataNotes;
         }
+    }
+
+    ngAfterContentChecked() {
+        this._config.callAfterInit();
     }
 }

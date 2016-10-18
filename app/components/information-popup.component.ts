@@ -31,7 +31,8 @@ export class InformationPopupComponent {
     constructor(private err: It7ErrorService,
                 private requestPopupService: PopupService,
                 private dataManager: DataManagerService,
-                private dynamicFlags: DynamicFlags) {
+                private dynamicFlags: DynamicFlags,
+                private config: PluginConfig) {
         this.window = window;
         this.requestPopupService.popup.subscribe(popup => this.checkPopup(popup));
     }

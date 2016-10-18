@@ -41,7 +41,7 @@ export class SelectTypeComponent {
                 var popup = new ConfirmPopup(this.popUpInformation);
                 this._requestPopupService.showPopup(popup);
                 console.log('this.dynamicFlags', this.dynamicFlags);
-                this.dynamicFlags.update(this._config);
+                this.dynamicFlags.update(data);
             }
         );
     }
