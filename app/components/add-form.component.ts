@@ -102,9 +102,9 @@ export class AddFormComponent{
                 if('' === value || value === null) {
                     field.isValid = false;
                     if(field.isSelect) {
-                        field.messageText = (field.messageText ? field.messageText + '. ' : '') + 'Please make selection!';
+                        field.messageText = (field.messageText ? field.messageText + '. ' : '') + 'Please make selection';
                     } else {
-                        field.messageText = (field.messageText ? field.messageText + '. ' : '') + 'Please fill in the form!';
+                        field.messageText = (field.messageText ? field.messageText + '. ' : '') + 'Please fill this field';
                     }
                 }
             }
