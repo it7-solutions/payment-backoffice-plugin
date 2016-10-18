@@ -18,12 +18,14 @@
                 <input id="datepicker" type="text" [(ngModel)]="addForm.transaction_date" />
             </td>
             <td width="15%">
+                <div class="message-error" *ngIf="!validateFields.invoice_id.isValid">{{validateFields.invoice_id.messageText}}</div>
                 <select [(ngModel)]="addForm.invoice_id">
                     <option value="" disabled>Please make selection</option>
                     <option *ngFor="let item of config.invoices_out" value="{{item.key}}">{{item.label}}</option>
                 </select>
             </td>
             <td width="15%">
+                <div class="message-error" *ngIf="!validateFields.payment_type_short_name.isValid">{{validateFields.payment_type_short_name.messageText}}</div>
                 <select [(ngModel)]="addForm.payment_type_short_name">
                     <option value="" disabled>Please make selection</option>
                     <option *ngFor="let item of config.payment_types" value="{{item.key}}">{{item.label}}</option>
@@ -33,14 +35,11 @@
                 <input [(ngModel)]="addForm.bank" type="text" />
             </td>
             <td width="15%">
+                <div class="message-error" *ngIf="!validateFields.amount.isValid">{{validateFields.amount.messageText}}</div>
                 <input [(ngModel)]="addForm.amount" type="text" />
             </td>
-            <td width="15%" valign="top">
-
-            </td>
-            <td width="5%" valign="bottom">
-
-            </td>
+            <td width="15%" valign="top"></td>
+            <td width="5%" valign="bottom"></td>
         </tr>
     </tbody>
     <tbody list-transactions *ngIf="config.transactions.length"></tbody>
