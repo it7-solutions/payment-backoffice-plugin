@@ -6,7 +6,7 @@ import {DynamicFlags} from "../services/dynamic-flags.service";
 import {FormSave} from "../models/form";
 
 @Component({
-    selector: 'my-app',
+    selector: 'payment-backoffice-plugin',
     templateUrl: PluginConfig.buildTemplateUrl('/templates/plugin.component.html')
 })
 export class PluginComponent implements OnInit {

@@ -57,6 +57,9 @@ export class AddFormComponent{
         this.config.callDatePicker((date: string) => {
             this.addForm.transaction_date = date;
         });
+        this.config.makeCallbackOnDemand((value: string) => {
+            this.addForm.amount = value;
+        })
     }
 
     validateFields: {[key:string] : ValidateField} = {
