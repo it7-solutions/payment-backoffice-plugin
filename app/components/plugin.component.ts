@@ -10,6 +10,14 @@ import {FormSave} from "../models/form";
     templateUrl: PluginConfig.buildTemplateUrl('/templates/plugin.component.html')
 })
 export class PluginComponent implements OnInit {
+    constructor(
+        private _config: PluginConfig,
+        private dataManager: DataManagerService,
+        private dynamicFlags: DynamicFlags
+    ) {
+        console.log('config', this._config);
+    }
+
     selected: TypeSelect = {
         payment_type: '',
         reg_service_id: '',
@@ -18,7 +26,7 @@ export class PluginComponent implements OnInit {
 
     formData: FormSave = {
         notes: '',
-        payment_completed: false
+        payment_completed: this.dynamicFlags.payment_completed
     };
     formDataNotesPayment: FormSave = {
         notes: this.dynamicFlags.payer_notes,
@@ -28,13 +36,7 @@ export class PluginComponent implements OnInit {
         notes: this.dynamicFlags.payer_notes
     };
 
-    constructor(
-        private _config: PluginConfig,
-        private dataManager: DataManagerService,
-        private dynamicFlags: DynamicFlags
-    ) {
-        console.log('config', this._config);
-    }
+
 
     onCancelInvoiceClick() {
         this.dataManager.cancelInvoiceRequest()

@@ -73,6 +73,7 @@ export class InformationPopupComponent {
             .then(
                 data => {
                     this.dynamicFlags.update(data);
+                    console.log('this.dynamicFlags', this.dynamicFlags);
                 }
             )
     }

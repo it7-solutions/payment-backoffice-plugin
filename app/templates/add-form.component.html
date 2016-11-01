@@ -21,7 +21,7 @@
                 <div class="message-error" *ngIf="!validateFields.invoice_id.isValid">{{validateFields.invoice_id.messageText}}</div>
                 <select [(ngModel)]="addForm.invoice_id">
                     <option value="" disabled>Please make selection</option>
-                    <option *ngFor="let item of config.invoices_out" value="{{item.key}}">{{item.label}}</option>
+                    <option *ngFor="let item of dynamicFlags.invoices" value="{{item.key}}">{{item.label}}</option>
                 </select>
             </td>
             <td width="15%">

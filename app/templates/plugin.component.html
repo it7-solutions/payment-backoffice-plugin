@@ -27,11 +27,11 @@
                     <td>Balance due:</td>
                     <td align="right">{{dynamicFlags.balance_due}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf="dynamicFlags.payment_date">
                     <td>Payment date:</td>
-                    <td align="right">{{_config.payment_date}}</td>
+                    <td align="right">{{dynamicFlags.payment_date}}</td>
                 </tr>
-                <tr *ngIf="_config.show_payment_completed">
+                <tr *ngIf="dynamicFlags.show_payment_completed">
                     <td>Payment complete:</td>
                     <td align="right">
                         <label for="payment_complete">Yes</label>
