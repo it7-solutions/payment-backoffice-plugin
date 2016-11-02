@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Output, EventEmitter} from "@angular/core";
 import {AddForm} from "../models/addForm";
 import {DataManagerService} from "../services/data-manager.service";
 import {PluginConfig} from "../services/plugin.config";
@@ -27,6 +27,8 @@ export class AddFormComponent{
         transaction_date: ''
     };
 
+    @Output() notify: EventEmitter<string> = new EventEmitter<string>();
+
     onAddTransactionClick() {
         this.onValidateFields();
         console.log('form', this.formValid);
@@ -35,6 +37,7 @@ export class AddFormComponent{
                 .then(
                     data => {
                         this.dynamicFlags.update(data);
+                        this.notify.emit(data);
                         console.log('this.dynamicFlags', this.dynamicFlags);
                         this.addForm = {
                             amount: '',

@@ -18,6 +18,8 @@ export class PluginComponent implements OnInit {
         console.log('config', this._config);
     }
 
+    addTransaction: boolean = false;
+
     selected: TypeSelect = {
         payment_type: '',
         reg_service_id: '',
@@ -59,6 +61,7 @@ export class PluginComponent implements OnInit {
     onSaveClick() {
         console.log('formData', this.formData);
         this.dataManager.saveRequest(this.formData);
+        this.addTransaction = false;
     }
 
     ngOnInit() {
@@ -71,5 +74,9 @@ export class PluginComponent implements OnInit {
 
     ngAfterContentChecked() {
         this._config.callAfterInit();
+    }
+
+    onNotify(message:string):void {
+        this.addTransaction = true;
     }
 }
