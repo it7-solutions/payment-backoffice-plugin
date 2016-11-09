@@ -20,10 +20,10 @@ export class DataManagerService {
 
 
     getInvoiceRequest(selection: Object){
-        console.log('get invoice request');
+        // console.log('get invoice request');
         this.showLoading();
         selection = JSON.stringify(selection);
-        console.log('new data', selection);
+        // console.log('new data', selection);
         return this.it7Ajax
             .post(this.config.get_invoice_url, {selection})
             .then(
@@ -35,7 +35,7 @@ export class DataManagerService {
     }
 
     getIssueInvoiceRequest(selection: Object) {
-        console.log('issue invoice');
+        // console.log('issue invoice');
         this.showLoading();
         selection = JSON.stringify(selection);
         return this.it7Ajax
@@ -63,7 +63,7 @@ export class DataManagerService {
     saveRequest(selection: Object) {
         this.showLoading();
         selection = JSON.stringify(selection);
-        console.log('form save data', selection);
+        // console.log('form save data', selection);
         return this.it7Ajax
             .post(this.config.save_form_url, {selection})
             .then(
@@ -77,7 +77,7 @@ export class DataManagerService {
     addTransactionRequest(selection: Object) {
         this.showLoading();
         selection = JSON.stringify(selection);
-        console.log('add transaction data', selection);
+        // console.log('add transaction data', selection);
         return this.it7Ajax
             .post(this.config.save_transaction_url, {selection})
             .then(
@@ -89,13 +89,13 @@ export class DataManagerService {
     }
 
     private showLoading(){
-        console.log('show loading');
+        // console.log('show loading');
         this.popup = new BusyPopup();
         this.popupService.showPopup(this.popup);
     }
 
     private hideLoading(): any{
-        console.log('hide loading');
+        // console.log('hide loading');
         if(this.popup){
             this.popup.visible = false;
             this.popupService.showPopup(this.popup);

@@ -15,6 +15,7 @@
     <tbody>
         <tr *ngIf="_show_form">
             <td width="15%">
+                <div class="message-error" *ngIf="!validateFields.transaction_date.isValid">{{validateFields.transaction_date.messageText}}</div>
                 <input id="datepicker" type="text" [(ngModel)]="addForm.transaction_date" />
             </td>
             <td width="15%">

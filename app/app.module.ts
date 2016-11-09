@@ -1,4 +1,4 @@
-import {NgModule}      from '@angular/core';
+import {NgModule, enableProdMode}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {PluginComponent}  from './components/plugin.component';
 import {SelectTypeComponent} from "./components/select-type.component";
@@ -15,6 +15,7 @@ import {PluginConfig} from "./services/plugin.config";
 import {ViewTypeComponent} from "./components/view-type.component";
 import {AddFormComponent} from "./components/add-form.component";
 import {ListTransactionsComponent} from "./components/list-transactions.component";
+enableProdMode();
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule],
@@ -42,6 +43,6 @@ export class AppModule {
         private dynamicFlags: DynamicFlags
     ) {
         this.dynamicFlags.update(this.config);
-        console.log('this.dynamicFlags', this.dynamicFlags);
+        // console.log('this.dynamicFlags', this.dynamicFlags);
     }
 }

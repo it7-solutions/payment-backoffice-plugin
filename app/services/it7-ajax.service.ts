@@ -40,7 +40,7 @@ export class It7AjaxService {
             .toPromise()
             .then(res => this.checkResponse(res))
             .catch(function (error) {
-                console.log(arguments); here.handleError('Request error: ' + error.message);
+                // console.log(arguments); here.handleError('Request error: ' + error.message);
             });
     }
 

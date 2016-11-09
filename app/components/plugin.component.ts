@@ -15,7 +15,7 @@ export class PluginComponent implements OnInit {
         private dataManager: DataManagerService,
         private dynamicFlags: DynamicFlags
     ) {
-        console.log('config', this._config);
+        // console.log('config', this._config);
     }
 
     addTransaction: boolean = false;
@@ -45,7 +45,7 @@ export class PluginComponent implements OnInit {
             .then(
                 data => {
                     this.dynamicFlags.update(data);
-                    console.log('this.dynamicFlags', this.dynamicFlags);
+                    // console.log('this.dynamicFlags', this.dynamicFlags);
                 }
             );
     }
@@ -59,7 +59,7 @@ export class PluginComponent implements OnInit {
     }
 
     onSaveClick() {
-        console.log('formData', this.formData);
+        // console.log('formData', this.formData);
         this.dataManager.saveRequest(this.formData);
         this.addTransaction = false;
     }

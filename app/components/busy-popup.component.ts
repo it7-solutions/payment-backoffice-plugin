@@ -28,14 +28,12 @@ export class BusyPopupComponent {
     window: any;
 
     constructor(private popupService: PopupService//,
-                //private window: Window
     ) {
         this.window = window;
         this.popupService.popup.subscribe(popup => this.checkPopup(popup));
     }
 
     private checkPopup(popup: BasePopup) {
-        console.log('Check popup');
         if (popup instanceof BusyPopup) {
             if (popup.visible) {
                 this.showPopup(popup as BusyPopup);
@@ -46,7 +44,6 @@ export class BusyPopupComponent {
     }
 
     private showPopup(popup: BusyPopup) {
-        console.log('showing popup');
         this.popup = popup;
         this.setOverlay();
         this.centerPopup();

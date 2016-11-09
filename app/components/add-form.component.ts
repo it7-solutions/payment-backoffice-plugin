@@ -31,14 +31,14 @@ export class AddFormComponent{
 
     onAddTransactionClick() {
         this.onValidateFields();
-        console.log('form', this.formValid);
+        // console.log('form', this.formValid);
         if(this.checkValid()) {
             this.dataManager.addTransactionRequest(this.addForm)
                 .then(
                     data => {
                         this.dynamicFlags.update(data);
                         this.notify.emit(data);
-                        console.log('this.dynamicFlags', this.dynamicFlags);
+                        // console.log('this.dynamicFlags', this.dynamicFlags);
                         this.addForm = {
                             amount: '',
                             invoice_id: '',
@@ -91,7 +91,7 @@ export class AddFormComponent{
         transaction_date: {
             isValid: true,
             messageText: '',
-            isRequired: false
+            isRequired: true
         }
     };
 

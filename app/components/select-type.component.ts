@@ -31,16 +31,16 @@ export class SelectTypeComponent {
     submitted = false;
 
     onSubmit() {
-        console.log(this.selected);
+        // console.log(this.selected);
         this.submitted = true;
         this._dataManager.getInvoiceRequest(this.selected)
             .then(
             data => {
                 this.popUpInformation = data;
-                console.log(this.popUpInformation);
+                // console.log(this.popUpInformation);
                 var popup = new ConfirmPopup(this.popUpInformation);
                 this._requestPopupService.showPopup(popup);
-                console.log('this.dynamicFlags', this.dynamicFlags);
+                // console.log('this.dynamicFlags', this.dynamicFlags);
                 this.dynamicFlags.update(data);
             }
         );
