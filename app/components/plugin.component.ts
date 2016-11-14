@@ -78,5 +78,6 @@ export class PluginComponent implements OnInit {
 
     onNotify(message:string):void {
         this.addTransaction = true;
+        this.formData.payment_completed = true;
     }
 }
