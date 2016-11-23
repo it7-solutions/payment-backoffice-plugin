@@ -16,8 +16,6 @@ export class ListTransactionsComponent {
     ) {}
 
     onShowTransactionDetailsClick(id: number) {
-        console.log(id);
-        console.log('vvv');
         var data: TransactionInformation = {
             success: this.dynamicFlags.transactions[id].details.success,
             error: this.dynamicFlags.transactions[id].details.error
