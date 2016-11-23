@@ -15,7 +15,8 @@ export class PluginComponent implements OnInit {
         private dataManager: DataManagerService,
         private dynamicFlags: DynamicFlags
     ) {
-        // console.log('config', this._config);
+        console.log('config', this._config);
+        console.log('this.dynamicFlags', this.dynamicFlags);
     }
 
     addTransaction: boolean = false;

@@ -1,4 +1,4 @@
-<tr *ngFor="let item of dynamicFlags.transactions">
+<tr *ngFor="let item of dynamicFlags.transactions; let i = index">
     <td width="15%">
         <div>{{item.date}}</div>
     </td>
@@ -15,7 +15,7 @@
         <div>{{item.amount}}</div>
     </td>
     <td width="15%">
-        <div>{{item.state}}</div>
+        <a href="javascript:void(0)" (click)="onShowTransactionDetailsClick(i)">{{item.state}}</a>
     </td>
     <td width="5%"></td>
 </tr>

@@ -1,0 +1,72 @@
+<style>
+    .overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: #ffffff;
+        opacity: 0.5;
+    }
+
+    .popup {
+        position: fixed;
+        width: 800px;
+        height: 450px;
+        left: 0;
+        top: 0;
+        background-color: #f8f8f8;
+        z-index: 99;
+    }
+</style>
+<div class="overlay" *ngIf="popup" [style.width]="overlayWidth" [style.height]="overlayHeight"></div>
+<div class="popup" *ngIf="popup" [style.left]="styleLeft" [style.top]="styleTop">
+    <table *ngIf="popup.data.success != null">
+        <tbody>
+            <tr *ngIf="popup.data.success.amount">
+                <td>amount</td>
+                <td>{{popup.data.success.amount}}</td>
+            </tr>
+            <tr *ngIf="popup.data.success.bank">
+                <td>bank:</td>
+                <td>{{popup.data.success.bank}}</td>
+            </tr>
+            <tr *ngIf="popup.data.success.cc_status">
+                <td>cc_status:</td>
+                <td>{{popup.data.success.cc_status}}</td>
+            </tr>
+            <tr *ngIf="popup.data.success.cc_transaction_id">
+                <td>cc_transaction_id:</td>
+                <td>{{popup.data.success.cc_transaction_id}}</td>
+            </tr>
+            <tr *ngIf="popup.data.success.date">
+                <td>date:</td>
+                <td>{{popup.data.success.date}}</td>
+            </tr>
+            <tr *ngIf="popup.data.success.payment_type">
+                <td>payment_type:</td>
+                <td>{{popup.data.success.payment_type}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table *ngIf="popup.data.error != null">
+        <tbody>
+            <tr *ngIf="popup.data.error.code">
+                <td>code:</td>
+                <td>{{popup.data.error.code}}</td>
+            </tr>
+            <tr *ngIf="popup.data.error.message">
+                <td>message:</td>
+                <td>{{popup.data.error.message}}</td>
+            </tr>
+            <tr *ngIf="popup.data.error.detail">
+                <td>detail:</td>
+                <td>{{popup.data.error.detail}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button (click)="onCancelClick()">Okay</button>
+    </div>
+</div>

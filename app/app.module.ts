@@ -15,6 +15,7 @@ import {PluginConfig} from "./services/plugin.config";
 import {ViewTypeComponent} from "./components/view-type.component";
 import {AddFormComponent} from "./components/add-form.component";
 import {ListTransactionsComponent} from "./components/list-transactions.component";
+import {TransactionPopupComponent} from "./components/transaction-popup.component";
 enableProdMode();
 
 @NgModule({
@@ -24,6 +25,7 @@ enableProdMode();
         SelectTypeComponent,
         BusyPopupComponent,
         InformationPopupComponent,
+        TransactionPopupComponent,
         ViewTypeComponent,
         AddFormComponent,
         ListTransactionsComponent
