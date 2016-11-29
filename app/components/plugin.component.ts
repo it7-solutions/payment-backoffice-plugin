@@ -60,13 +60,13 @@ export class PluginComponent implements OnInit {
     }
 
     onSaveClick() {
-        // console.log('formData', this.formData);
+        console.log('formData', this.formData);
         this.dataManager.saveRequest(this.formData);
         this.addTransaction = false;
     }
 
     ngOnInit() {
-        if(this._config.show_payment_completed) {
+        if(this.dynamicFlags.show_payment_completed) {
             this.formData = this.formDataNotesPayment;
         } else {
             this.formData = this.formDataNotes;
@@ -74,11 +74,11 @@ export class PluginComponent implements OnInit {
     }
 
     ngAfterContentChecked() {
-        this._config.callAfterInit();
+        // this._config.callAfterInit();
     }
 
     onNotify(message:string):void {
         this.addTransaction = true;
-        // this.formData.payment_completed = true;
+        this.formData.payment_completed = !this.formData.payment_completed;
     }
 }

@@ -37,6 +37,7 @@ export class AddFormComponent{
                 .then(
                     data => {
                         this.dynamicFlags.update(data);
+                        console.log('this.dynamicFlags', this.dynamicFlags);
                         this.notify.emit(data);
                         // console.log('this.dynamicFlags', this.dynamicFlags);
                         this.addForm = {

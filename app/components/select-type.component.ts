@@ -46,6 +46,6 @@ export class SelectTypeComponent {
     }
 
     ngAfterViewInit() {
-        this._config.callAfterInit();
+        // this._config.callAfterInit();
     }
 }
