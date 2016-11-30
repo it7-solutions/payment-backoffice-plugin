@@ -36,8 +36,8 @@
                     <td align="right">
                         <label for="payment_complete">Yes</label>
                         <input
-                            [checked]="addTransaction ? dynamicFlags.payment_completed : formData.payment_completed"
-                            [(ngModel)]="addTransaction ? dynamicFlags.payment_completed : formData.payment_completed"
+                            [checked]="formData.payment_completed"
+                            [(ngModel)]="formData.payment_completed"
                             id="payment_complete"
                             type="checkbox" />
                     </td>
@@ -52,7 +52,7 @@
         </td>
     </tr>
 </table>
-<add-form *ngIf="dynamicFlags.show_transactions_form" (notify)="onNotify($event)"></add-form>
+<add-form *ngIf="dynamicFlags.show_transactions_form" (notifyTransaction)="onNotifyTransaction($event)"></add-form>
 <busy-popup></busy-popup>
 <information-popup [selected]="selected"></information-popup>
 <transaction-popup></transaction-popup>

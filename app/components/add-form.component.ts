@@ -27,7 +27,7 @@ export class AddFormComponent{
         transaction_date: ''
     };
 
-    @Output() notify: EventEmitter<string> = new EventEmitter<string>();
+    @Output() notifyTransaction: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     onAddTransactionClick() {
         this.onValidateFields();
@@ -37,8 +37,7 @@ export class AddFormComponent{
                 .then(
                     data => {
                         this.dynamicFlags.update(data);
-                        console.log('this.dynamicFlags', this.dynamicFlags);
-                        this.notify.emit(data);
+                        this.notifyTransaction.emit(this.dynamicFlags.payment_completed);
                         // console.log('this.dynamicFlags', this.dynamicFlags);
                         this.addForm = {
                             amount: '',

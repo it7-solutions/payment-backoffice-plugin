@@ -19,8 +19,6 @@ export class PluginComponent implements OnInit {
         // console.log('this.dynamicFlags', this.dynamicFlags);
     }
 
-    addTransaction: boolean = false;
-
     selected: TypeSelect = {
         payment_type: '',
         reg_service_id: '',
@@ -60,9 +58,12 @@ export class PluginComponent implements OnInit {
     }
 
     onSaveClick() {
-        console.log('formData', this.formData);
-        this.dataManager.saveRequest(this.formData);
-        this.addTransaction = false;
+        // console.log('formData', this.formData);
+        this.dataManager.saveRequest(this.formData)
+            .then(data => {
+                this.dynamicFlags.update(data);
+                // console.log('this.dynamicFlags', this.dynamicFlags);
+            });
     }
 
     ngOnInit() {
@@ -77,8 +78,7 @@ export class PluginComponent implements OnInit {
         // this._config.callAfterInit();
     }
 
-    onNotify(message:string):void {
-        this.addTransaction = true;
-        this.formData.payment_completed = !this.formData.payment_completed;
+    onNotifyTransaction(state:boolean):void {
+        this.formData.payment_completed = state;
     }
 }
